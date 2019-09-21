@@ -1,7 +1,9 @@
-import { QPaintDoc } from "./dom";
+import { QPaintDoc } from "./model/dom";
+import { QShapeStyle, Shape } from "./model/shape";
 class QPaintView {
-  properties: any;
+  style: QShapeStyle;
   controllers: any;
+  _selection: any;
   _currentKey: string;
   _current: any;
   drawing: any;
@@ -12,13 +14,13 @@ class QPaintView {
   onmouseup: any = null;
   ondblclick: any = null;
   onkeydown: any = null;
+  onSelectionChanged: any = null;
+  onControllerReset: any = null;
 
   constructor(drawing: any, doc: QPaintDoc) {
-    this.properties = {
-      lineWidth: 1,
-      lineColor: "black"
-    };
+    this.style = new QShapeStyle(3, "black", "white");
     this.controllers = {};
+    this._selection = null;
     this._currentKey = "";
     this._current = null;
 
@@ -59,13 +61,21 @@ class QPaintView {
     this.drawing = drawing;
     this.doc = doc;
   }
-
   get currentKey() {
     return this._currentKey;
   }
-  get lineStyle() {
-    let props = this.properties;
-    return { width: props.lineWidth, color: props.lineColor };
+
+  get selection() {
+    return this._selection;
+  }
+  set selection(shape) {
+    let old = this._selection;
+    if (old != shape) {
+      this._selection = shape;
+      if (this.onSelectionChanged != null) {
+        this.onSelectionChanged(old);
+      }
+    }
   }
 
   invalidateRect() {
@@ -109,6 +119,11 @@ class QPaintView {
     if (this._current != null) {
       this._current.stop();
       this._setCurrent("", null);
+    }
+  }
+  fireControllerReset() {
+    if (this.onControllerReset != null) {
+      this.onControllerReset();
     }
   }
   _setCurrent(name: string, ctrl: any) {
