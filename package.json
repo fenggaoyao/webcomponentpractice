@@ -1,0 +1,27 @@
+{
+  "name": "paint",
+  "version": "1.0.0",
+  "description": "画图,基于canvas",
+  "main": "./src/index.ts",
+  "scripts": {
+    "start": "webpack-dev-server --mode=development --config ./build/webpack.config.js",
+    "build": "webpack --mode=production --config ./build/webpack.config.js",
+    "lint": "eslint src --ext .js,.ts",
+    "test": "jest"
+  },
+  "keywords": [
+    "canvas"
+  ],
+  "author": "fenggaoyao",
+  "license": "ISC",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "ts-loader": "^6.1.1",
+    "typescript": "^3.6.3",
+    "webpack": "^4.40.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.1",
+    "webpack-merge": "^4.2.2"
+  }
+}
