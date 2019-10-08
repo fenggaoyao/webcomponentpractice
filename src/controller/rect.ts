@@ -1,4 +1,4 @@
-import { QPaintView } from "./../view";
+import { QPaintView } from "../painter/view";
 import { normalizeRect, Shape } from "./../model/shape";
 import { QRect } from "./../model/Rect";
 import { QLine } from "./../model/line";

@@ -1,0 +1,19 @@
+import {
+    HashRouter
+} from './Router'
+
+let router = new HashRouter();
+router.add(/\/path\/a/, () => {
+    //path a
+})
+router.add(/\/path\/b/, () => {
+    //path b
+})
+router.add(/\/path\/c/, () => {
+    //path c
+})
+
+router.listen()
+
+router.push('/path/b')
+router.push('/path/a')

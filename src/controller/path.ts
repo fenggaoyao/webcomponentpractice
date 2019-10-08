@@ -1,4 +1,4 @@
-import { QPaintView } from "./../view";
+import { QPaintView } from "../painter/view";
 import { QPath } from "./../model/path";
 class QPathCreator {
   points: any;

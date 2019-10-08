@@ -1,5 +1,5 @@
 import { Shape, point } from "./../model/shape";
-import { QPaintView } from "./../view";
+import { QPaintView } from "../painter/view";
 import { QPath } from "./../model/path";
 class QFreePathCreator {
   points: point[];

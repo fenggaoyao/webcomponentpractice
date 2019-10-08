@@ -1,5 +1,5 @@
-import { QPaintDoc } from "./model/dom";
-import { QShapeStyle, Shape } from "./model/shape";
+import { QPaintDoc } from "../model/dom";
+import { QShapeStyle, Shape } from "../model/shape";
 class QPaintView {
   style: QShapeStyle;
   controllers: any;

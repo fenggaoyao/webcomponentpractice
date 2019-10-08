@@ -4,7 +4,7 @@
   "description": "画图,基于canvas",
   "main": "./src/index.ts",
   "scripts": {
-    "start": "webpack-dev-server --mode=development --config ./build/webpack.config.js",
+    "start": "webpack-dev-server --host 192.168.123.16 --mode=development --config ./build/webpack.config.js",
     "build": "webpack --mode=production --config ./build/webpack.config.js",
     "lint": "eslint src --ext .js,.ts",
     "test": "jest"

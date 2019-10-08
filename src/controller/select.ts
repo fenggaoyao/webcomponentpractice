@@ -1,5 +1,5 @@
 import { point } from "./../model/shape";
-import { QPaintView } from "./../view";
+import { QPaintView } from "../painter/view";
 class QShapeSelector {
   started: Boolean;
   pt: point;
